@@ -956,8 +956,8 @@ static AACENC_ERROR FDKaacEnc_AdjustEncSettings(HANDLE_AACENCODER hAacEncoder,
           (config->userTpType != TT_UNKNOWN) ? config->userTpType : TT_MP4_RAW;
       hAacConfig->framelength = (config->userFramelength != (UINT)-1)
                                     ? config->userFramelength
-                                    : 1024;
-      if (hAacConfig->framelength != 1024 && hAacConfig->framelength != 960) {
+                                    : 2048;
+      if (hAacConfig->framelength != 2048 && hAacConfig->framelength != 1920) {
         return AACENC_INVALID_CONFIG;
       }
       break;
