@@ -952,6 +952,7 @@ static AACENC_ERROR FDKaacEnc_AdjustEncSettings(HANDLE_AACENCODER hAacEncoder,
     case AOT_HDC:
     case AOT_HDC_PS:
       hAacConfig->syntaxFlags |= AC_HDC;
+      hAacConfig->useIS = 0;
       config->userTpType =
           (config->userTpType != TT_UNKNOWN) ? config->userTpType : TT_MP4_RAW;
       hAacConfig->framelength = (config->userFramelength != (UINT)-1)
