@@ -954,11 +954,11 @@ static AACENC_ERROR FDKaacEnc_AdjustEncSettings(HANDLE_AACENCODER hAacEncoder,
       hAacConfig->syntaxFlags |= AC_HDC;
       hAacConfig->useIS = 0;
       config->userTpType =
-          (config->userTpType != TT_UNKNOWN) ? config->userTpType : TT_MP4_RAW;
+          (config->userTpType != TT_UNKNOWN) ? config->userTpType : TT_MP4_ADTS;
       hAacConfig->framelength = (config->userFramelength != (UINT)-1)
                                     ? config->userFramelength
-                                    : 2048;
-      if (hAacConfig->framelength != 2048 && hAacConfig->framelength != 1920) {
+                                    : 1024;
+      if (hAacConfig->framelength != 1024) {
         return AACENC_INVALID_CONFIG;
       }
       break;
