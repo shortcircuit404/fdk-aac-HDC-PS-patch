@@ -2166,6 +2166,8 @@ AACENC_ERROR aacEncoder_SetParam(const HANDLE_AACENCODER hAacEncoder,
           case AOT_MP2_AAC_LC:
           case AOT_ER_AAC_LD:
           case AOT_ER_AAC_ELD:
+          case AOT_HDC:
+          case AOT_HDC_PS:
             if (!(hAacEncoder->encoder_modis & (ENC_MODE_FLAG_AAC))) {
               err = AACENC_INVALID_CONFIG;
               goto bail;
