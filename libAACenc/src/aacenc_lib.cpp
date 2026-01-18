@@ -1366,7 +1366,12 @@ static AACENC_ERROR aacEncInit(HANDLE_AACENCODER hAacEncoder, ULONG InitFlags,
         initFlag);
 
     /* Suppress AOT reconfiguration and check error status. */
-    if ((sbrError) || (numChannels != hAacConfig->nChannels)) {
+    if (sbrError) {
+      return AACENC_INIT_SBR_ERROR;
+    }
+
+    /* For PS modes, allow channel count change; for others, validate */
+    if (!isPsActive(hAacConfig->audioObjectType) && (numChannels != hAacConfig->nChannels)) {
       return AACENC_INIT_SBR_ERROR;
     }
 
